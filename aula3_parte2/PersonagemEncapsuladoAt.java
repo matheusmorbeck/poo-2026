@@ -23,4 +23,30 @@ class PersonagemEncapsuladoAt {
     public void atacar(int dano) {
         System.out.println(nome + " atacou causando " + dano + " de dano!");
     }
+
+    // Getters
+    public String getNome() {
+        return nome;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    // Setters
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
 }
