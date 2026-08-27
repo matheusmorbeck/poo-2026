@@ -1,16 +1,16 @@
-class PersonagemEncapsuladoAt {
+class Personagem {
 
     private String nome;
     private int vida;
     private int nivel;
     
-    public PersonagemEncapsuladoAt() {
+    public Personagem() {
         nome = "Sem nome";
         vida = 100;
         nivel = 1;
     }
 
-    public PersonagemEncapsuladoAt(String nome, int vida, int nivel) {
+    public Personagem(String nome, int vida, int nivel) {
         this.nome = nome;
         this.vida = vida;
         this.nivel = nivel;
