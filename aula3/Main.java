@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        PersonagemEncapsulado p = new PersonagemEncapsulado();
+        Personagem p = new Personagem();
 
         p.setNome("Mario");
         p.setVida(100);
