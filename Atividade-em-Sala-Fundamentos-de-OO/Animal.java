@@ -23,6 +23,7 @@ VALIDAÇÕES:
 USO DE IA PRETENDIDO:
 - Interpretação da proposta do Moodle;
 - Relembrar sintaxe básica de POO para Java;
+- Tirar dúvidas em relação a implementação do projeto
 */
 
 public class Animal{
