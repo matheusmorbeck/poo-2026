@@ -1,4 +1,4 @@
-class PersonagemEncapsulado {
+class Personagem {
 
     private String nome;
     private int vida;
