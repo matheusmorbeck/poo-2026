@@ -1,0 +1,108 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Personagem {
+    protected String nome;
+    protected int vida;
+    protected int nivel;
+    protected List<Item> inventario;
+
+    public Personagem() {
+        nome = "";
+        vida = 100;
+        nivel = 1;
+        inventario = new ArrayList<>();
+    }
+
+    public Personagem(String nome, int vida, int nivel) {
+        this.nome = nome;
+        setVida(vida);
+        this.nivel = nivel;
+        this.inventario = new ArrayList<>();
+    }
+
+
+    // Getters
+    public String getNome() {
+        return nome;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    // Setters
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setVida(int vida) {
+        if (vida < 0) {
+            throw new IllegalArgumentException(
+                "Vida inválida! Insira um valor maior ou igual a 0 (valor informado: " + vida + ")"
+            );
+        }
+        this.vida = vida;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+    // Metodos
+    boolean estaVivo() {
+        if (vida > 0) {
+            return (true);
+        } else {
+            return (false);
+        }
+    }
+
+    public void atacar(Personagem alvo, int dano) {
+        alvo.receberDano(dano);
+        System.out.println(this.nome + " atacou " + alvo.nome + " causando " + dano + " de dano!");
+    }
+
+    public void ficha() {
+        System.out.printf("Nome: %s", nome);
+        System.out.printf("%nVida: %d", vida);
+        System.out.printf("%nNível: %d%n", nivel);
+
+        System.out.printf("%nInventário: ");
+        if (inventario.isEmpty()) {
+            System.out.printf("%nInventário vazio%n");
+        } else {
+            for (Item item : inventario) {
+                item.descricao();
+            }
+        }
+    }
+
+    public int receberDano(int dano) {
+        return (vida = vida - dano);
+    }
+
+    public void pegar(Item item) {
+        inventario.add(item);
+    }
+
+    public Item buscarItem(String nomeItemBuscado) throws ItemNaoEncontradoException {
+        for (Item item : inventario) {
+            if (item.getNomeItem().equalsIgnoreCase(nomeItemBuscado)) {
+                return item;
+            }
+        }
+        throw new ItemNaoEncontradoException(nomeItemBuscado);
+    }
+
+    public void usarItem(String nomeItemBuscado) throws ItemNaoEncontradoException {
+        Item item = buscarItem(nomeItemBuscado);
+        System.out.printf("%s usa %s e recebe +%d de bônus!%n", nome, item.getNomeItem(), item.getBonusItem());
+    }
+
+    public abstract String habilidade();
+}
